@@ -5,8 +5,41 @@
     <body>
         <h1> JS ES 2</h1>
         <h2>Static HTML page: exercise 1 but with JQuery</h2>
-        <div>Non puoi premere il bottone</div>
-        <button>CLICCAMI</button>
-        <script scr="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
+        <div id="div1"></div>
+        
+        
+        <script src="JQuery.js"></script>
+        <script>
+            // document.getElementById("div1").innerHTML="ciao";
+            $("#div1").html("Non puoi premere il bottone");
+            
+            // $("#btn1").on("click", Function());
+            // $("#btn1").click(function(){});
+            var rosso=false;
+            $("body").append(
+                $("<button id='btn1'>CLICCAMI</button>").click( function(){
+                    // $("#div1").attr("style", "background-color: rgb(255, 0,255)");
+                    // $("#div1").html("Ti avevo detto di non premere Pota");
+                    if (!rosso){
+                        $("#div1").attr("style", "background-color: RED");
+                        rosso=true;
+                    }else{
+                        $("#div1").removeAttr("style");
+                        rosso=false;
+                    }
+                })
+            );
+                
+            console.log($("#div1"));
+            console.log($("#btn1"));
+            //JQuery crea cosi automaticamente un oggettohtml e per aggiungerlo nella pagina uso. append h3 dalbody
+            var h3=$("<h3>Aggiunto un titolo H3</h3>");
+            $("body").append(h3);
+            //Possofarlo anche tutto unito scrivendo
+            $("body").append($("<h3>Aggiunto un titolo H3</h3>"));
+            
+
+        </script>
     </body>
 </html>
